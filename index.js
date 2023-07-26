@@ -4,6 +4,7 @@ import express from "express";
 import { client, connectToDb } from "./db.js";
 import fs from "fs";
 import { studentRouter } from "./drivers/router.js";
+import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -41,6 +42,7 @@ app.listen(port, ()=>{
 })
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res)=>{
   res.send("working good");
